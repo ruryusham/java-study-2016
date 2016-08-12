@@ -33,6 +33,14 @@
     <servlet-name>shimadacalcresult</servlet-name>
     <servlet-class>ShimadaCalcResult</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>inputnumOkano</servlet-name>
+    <servlet-class>InputNumberOkano</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>calcresultOkano</servlet-name>
+    <servlet-class>CalcResultOkano</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>inputnum</servlet-name>
     <url-pattern>/input-number</url-pattern>
@@ -56,5 +64,13 @@
   <servlet-mapping>
     <servlet-name>shimadacalcresult</servlet-name>
     <url-pattern>/shimada-calc-result</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>inputnumOkano</servlet-name>
+    <url-pattern>/okano-input-number</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>calcresultOkano</servlet-name>
+    <url-pattern>/okano-calc-result</url-pattern>
   </servlet-mapping>
 </web-app>
