@@ -9,4 +9,20 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>inputnum</servlet-name>
+    <servlet-class>InputNumber</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>calcresult</servlet-name>
+    <servlet-class>CalcResult</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>inputnum</servlet-name>
+    <url-pattern>/input-number</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>calcresult</servlet-name>
+    <url-pattern>/calc-result</url-pattern>
+  </servlet-mapping>
 </web-app>
