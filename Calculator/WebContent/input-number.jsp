@@ -22,6 +22,7 @@
 <li><a href="ichikawa-input-number">市川さんのページ</a></li>
 <li><a href="okano-input-number">岡野さんのページ</a></li>
 <li><a href="mitani-input-number">三谷さんのページ</a></li>
+<li><a href="komatsu-input-number">小松さんのページ</a></li>
 </ul>
 </body>
 </html>
