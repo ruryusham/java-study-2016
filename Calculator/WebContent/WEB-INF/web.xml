@@ -18,6 +18,10 @@
     <servlet-class>CalcResult</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>calcresult3</servlet-name>
+    <servlet-class>CalcResultkomatsu</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>calcresult2</servlet-name>
     <servlet-class>CalcResultGoto</servlet-class>
   </servlet>
@@ -38,7 +42,7 @@
     <servlet-class>InputNumberOkano</servlet-class>
   </servlet>
   <servlet>
-  <servlet-name>komatsuinputnumber</servlet-name>
+    <servlet-name>komatsuinputnumber</servlet-name>
     <servlet-class>InputNumberKomatsu</servlet-class>
   </servlet>
   <servlet>
@@ -52,6 +56,10 @@
   <servlet-mapping>
     <servlet-name>calcresult</servlet-name>
     <url-pattern>/calc-result</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>calcresult3</servlet-name>
+    <url-pattern>/calc-komatsu</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>inputnum2</servlet-name>
@@ -78,7 +86,7 @@
     <url-pattern>/okano-calc-result</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  <servlet-name>komatsuinputnumber</servlet-name>
+    <servlet-name>komatsuinputnumber</servlet-name>
     <url-pattern>/komatsu-input-number</url-pattern>
   </servlet-mapping>
 </web-app>
