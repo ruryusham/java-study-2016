@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+h1 {
+	color: red;
+}
+
+#sampleTable {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+tr:nth-child(even) {
+    background-color: #FDFDFD;
+}
+
+.originFont {
+	font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+#transArea {
+	height: 60px;
+	background-color: red;
+	opacity: 0.3;
+}
+
+.mOver {
+	height: 60px;
+	background-color: blue;
+}
+
+.mOver:hover {
+	height: 60px;
+	background-color: yellow;
+}
