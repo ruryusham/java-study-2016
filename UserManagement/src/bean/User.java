@@ -7,17 +7,24 @@ public class User {
 	/**
 	 * コンストラクタ
 	 *
+	 * @param userId ユーザーID
 	 * @param firstName 名前
 	 * @param lastName 苗字
 	 * @param age 年齢
 	 * @param sex 性別
 	 */
-	public User(String firstName, String lastName, int age, int sex) {
+	public User(String userId, String firstName, String lastName, int age, int sex) {
+		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
 		this.sex = sex;
 	}
+
+	/**
+	 * ユーザーID
+	 */
+	private String userId;
 
 	/**
 	 * 名前
@@ -38,6 +45,24 @@ public class User {
 	 * 性別
 	 */
 	private int sex;
+
+	/**
+	 * ユーザーIDを取得します。
+	 *
+	 * @return ユーザーID
+	 */
+	public String getUserId() {
+		return userId;
+	}
+
+	/**
+	 * ユーザーIDを設定します。
+	 *
+	 * @param userId ユーザーID
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
 	/**
 	 * 名前を取得します。

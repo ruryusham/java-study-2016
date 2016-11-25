@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.User;
 
@@ -31,26 +32,31 @@ public class UserListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ユーザー一覧を保持するリスト
-		List<User> users = new ArrayList<User>();
+		HttpSession session = request.getSession(true);
 
-		// 本多さんを生成
-		User honda = new User("Hideki", "Honda", 28, 0);
-		// 本多さんをリストに追加
-		users.add(honda);
+		if (session.getAttribute("users") == null) {
+			System.out.println("new session");
 
-		// 三谷さんを生成
-		User mitani = new User("Ryosuke", "Mitani", 27, 0);
-		// 三谷さんをリストに追加
-		users.add(mitani);
+			// ユーザー一覧を保持するリスト
+			List<User> users = new ArrayList<User>();
 
-		// 佐藤さんを生成
-		User sato = new User("Shoko", "Sato", 24, 1);
-		// 佐藤さんをリストに追加
-		users.add(sato);
+			// 本多さんを生成
+			User honda = new User("21013", "Hideki", "Honda", 28, 0);
+			// 本多さんをリストに追加
+			users.add(honda);
 
-		// JSPで参照できるようにAttributeに追加
-		request.setAttribute("users", users);
+			// 三谷さんを生成
+			User mitani = new User("21014", "Ryosuke", "Mitani", 27, 0);
+			// 三谷さんをリストに追加
+			users.add(mitani);
+
+			// 佐藤さんを生成
+			User sato = new User("22002", "Shoko", "Sato", 24, 1);
+			// 佐藤さんをリストに追加
+			users.add(sato);
+
+			session.setAttribute("users", users);
+		}
 
 		// JSPを呼び出す
 		RequestDispatcher dispatcher = request.getRequestDispatcher("user-list.jsp");
