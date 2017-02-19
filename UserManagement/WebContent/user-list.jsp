@@ -22,7 +22,9 @@ List<User> users = (List<User>) session.getAttribute("users");
 <script>
 $(document).ready(function() {
 	$(".btnDelete").click(function() {
-		alert($(this).data("id"));
+		var userId = $(this).data("id");
+		$("#userId").val(userId);
+		$("form").submit();
 	})
 })
 </script>
@@ -31,6 +33,7 @@ $(document).ready(function() {
 	<button type="button" onclick="location.href='user-create'">登録</button>
 </div>
 <br>
+<form method="post">
 <table border="1" style='border-spacing: 0;border-collapse: collapse;'>
 	<thead>
 		<tr>
@@ -55,5 +58,7 @@ $(document).ready(function() {
 	<% } %>
 	</tbody>
 </table>
+<input type="hidden" id="userId" name="userId"/>
+</form>
 </body>
 </html>

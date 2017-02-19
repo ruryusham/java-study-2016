@@ -35,8 +35,6 @@ public class UserListServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 
 		if (session.getAttribute("users") == null) {
-			System.out.println("new session");
-
 			// ユーザー一覧を保持するリスト
 			List<User> users = new ArrayList<User>();
 
@@ -67,6 +65,29 @@ public class UserListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 削除するユーザーのユーザーIDを取得
+		String userId = request.getParameter("userId");
+
+		// セッションからユーザー一覧を取得
+		HttpSession session = request.getSession(true);
+		@SuppressWarnings("unchecked")
+		List<User> users = (List<User>) session.getAttribute("users");
+		
+		int index = -1;
+		for (int i = 0; i < users.size(); i++) {
+			User user = users.get(i);
+			if (user.getUserId().equals(userId)) {
+				index = i;
+				break;
+			}
+		}
+		
+		// ユーザーの削除
+		users.remove(index);
+
+		// セッションにユーザー一覧を設定
+		session.setAttribute("users", users);
+		
 		doGet(request, response);
 	}
 }

@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bean.User;
 
 /**
  * Servlet implementation class UserCreateServlet
@@ -37,8 +42,31 @@ public class UserCreateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		// セッションから登録済みのユーザー一覧を取得
+		HttpSession session = request.getSession(true);
+		@SuppressWarnings("unchecked")
+		List<User> users = (List<User>) session.getAttribute("users");
+		if (users == null) {
+			users = new ArrayList<User>();
+		}
+		
+		// TODO あとで入力値チェックを実装する。
+		
+		// 入力値の取得
+		String userId = request.getParameter("userId");
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
+		int age = Integer.parseInt(request.getParameter("age"));
+		int sex = Integer.parseInt(request.getParameter("sex"));
+		
+		// 新規ユーザーを生成
+		User newUser = new User(userId, firstName, lastName, age, sex);
+		// 新規ユーザーをリストに追加
+		users.add(newUser);
 
+		// セッションにユーザー一覧を設定
+		session.setAttribute("users", users);
+
+		response.sendRedirect("user-list");
+	}
 }
